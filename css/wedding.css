@@ -1,0 +1,504 @@
+/* ===== Tema: Maroon - Krem - Emas (dikunci light) ===== */
+:root {
+    --maroon: #7a1f33;
+    --maroon-dark: #4a0f1c;
+    --gold: #b8893b;
+    --gold-soft: #e3cfa0;
+    --cream: #fbf5ec;
+    --cream-2: #f5eadc;
+    --blush: #f6e3dc;
+    --ink: #4a2a2e;
+}
+
+html[data-bs-theme="light"] {
+    --bs-body-bg: var(--cream);
+    --bs-body-color: var(--ink);
+    --bs-link-color: var(--maroon);
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--ink);
+}
+
+/* ---------- Tipografi ---------- */
+.font-esthetic {
+    font-family: 'Great Vibes', cursive !important;
+    font-weight: 400;
+    color: var(--maroon);
+    line-height: 1.2;
+    word-spacing: 0.15em;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--gold);
+}
+
+.names { font-size: clamp(2.9rem, 14vw, 4.2rem); margin: 0.25rem 0; }
+.h-script { font-size: 2.5rem; margin: 0; }
+.date { font-size: 1.3rem; margin: 0 0 1rem; }
+.date-spaced { letter-spacing: 0.35em; font-size: 1.05rem; margin: 0 0 1.25rem; }
+.text-gold { color: var(--gold) !important; }
+
+/* ---------- Section ---------- */
+.sec { padding: 4.5rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+
+html[data-bs-theme="light"] .bg-white-black { background-color: var(--cream); }
+html[data-bs-theme="light"] .bg-light-dark { background-color: var(--cream-2); }
+
+/* Pemisah: garis + berlian */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 1.1rem 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    width: 3.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor);
+}
+
+.divider::after { transform: scaleX(-1); }
+
+html[data-bs-theme="light"] .sec-maroon {
+    background: radial-gradient(circle at 50% 0%, #8f2a40 0%, var(--maroon) 50%, var(--maroon-dark) 100%);
+    color: var(--cream);
+}
+
+/* Dua section maroon berurutan: sambung warnanya agar tanpa garis */
+html[data-bs-theme="light"] .sec-maroon + .sec-maroon {
+    background: linear-gradient(180deg, var(--maroon-dark), var(--maroon) 100%);
+}
+
+.sec-maroon .font-esthetic { color: var(--cream); }
+.sec-maroon .eyebrow { color: var(--gold-soft); }
+.sec-maroon .divider { color: var(--gold-soft); }
+.sec-maroon a { color: var(--gold-soft); }
+
+.orn {
+    position: absolute;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+    max-width: 20rem;
+    z-index: 0;
+    animation: sway 6s ease-in-out infinite alternate; /* bergoyang pelan */
+}
+
+.orn-tl { top: 0; left: 0; width: 48%; transform-origin: 0 0; }
+.orn-tr { top: 0; right: 0; width: 48%; transform-origin: 100% 0; animation-delay: -2s; animation-duration: 7s; }
+.orn-bl { bottom: 0; left: 0; width: 48%; transform-origin: 0 100%; animation-delay: -4s; animation-duration: 6.5s; }
+.orn-br { bottom: 0; right: 0; width: 48%; transform-origin: 100% 100%; animation-delay: -1s; animation-duration: 7.5s; }
+
+/* ---------- Tombol & form ---------- */
+html[data-bs-theme="light"] .btn-outline-auto {
+    --bs-btn-color: var(--maroon);
+    --bs-btn-border-color: var(--maroon);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--maroon);
+    --bs-btn-hover-border-color: var(--maroon);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--maroon);
+    --bs-btn-active-border-color: var(--maroon);
+    --bs-btn-focus-shadow-rgb: 122, 31, 51;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--maroon);
+    --bs-btn-border-color: var(--maroon);
+    --bs-btn-hover-bg: var(--maroon-dark);
+    --bs-btn-hover-border-color: var(--maroon-dark);
+    --bs-btn-active-bg: var(--maroon-dark);
+    --bs-btn-active-border-color: var(--maroon-dark);
+    --bs-btn-disabled-bg: var(--maroon);
+    --bs-btn-disabled-border-color: var(--maroon);
+    --bs-btn-focus-shadow-rgb: 122, 31, 51;
+}
+
+/* Tombol di atas latar maroon */
+.btn-light-outline {
+    --bs-btn-color: var(--cream);
+    --bs-btn-border-color: var(--gold-soft);
+    --bs-btn-hover-color: var(--maroon);
+    --bs-btn-hover-bg: var(--cream);
+    --bs-btn-hover-border-color: var(--cream);
+    --bs-btn-active-color: var(--maroon);
+    --bs-btn-active-bg: var(--cream);
+    --bs-btn-active-border-color: var(--cream);
+}
+
+.progress-bar { background-color: var(--maroon); }
+
+.form-control,
+.form-select { border-color: var(--gold-soft); background-color: #fffdf9; }
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--maroon);
+    box-shadow: 0 0 0 0.2rem rgba(122, 31, 51, 0.15);
+}
+
+/* Kartu tipis (rekening, form ucapan) */
+html[data-bs-theme="light"] .bg-theme-auto,
+.card-w {
+    background-color: #fffdf9;
+    border: 1px solid var(--gold-soft);
+    border-radius: 1rem;
+    box-shadow: none;
+}
+
+html[data-bs-theme="light"] .text-theme-auto { color: var(--maroon); }
+
+/* ---------- Cover (welcome) & hero ---------- */
+.oval-wrap {
+    position: relative;
+    width: min(66vw, 15rem);
+    margin: 1rem auto;
+}
+
+.oval {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, #fff, var(--blush));
+    overflow: hidden;
+}
+
+.oval img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+}
+
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-body { padding: 9.5rem 1.5rem 0; position: relative; z-index: 1; }
+
+.hero-couple {
+    display: block;
+    width: 88%;
+    max-width: 22rem;
+    height: auto;
+    flex: none;
+    object-fit: contain;
+    margin: auto auto -4px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Mempelai ---------- */
+.ring {
+    width: 9.5rem;
+    height: 9.5rem;
+    margin: 0 auto 1rem;
+    padding: 6px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+}
+
+.ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    background: linear-gradient(180deg, var(--blush), #fff);
+}
+
+.person-name { font-size: 2.6rem; margin: 0; }
+.parents { margin: 0.25rem 0 0; font-size: 1rem; line-height: 1.5; }
+.parents b { font-weight: 600; }
+
+/* Ayat */
+.ayat {
+    margin: 1.5rem 0 0;
+    padding: 1.25rem 0.5rem;
+    border-top: 1px solid var(--gold-soft);
+    border-bottom: 1px solid var(--gold-soft);
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+/* ---------- Countdown ---------- */
+.tile {
+    perspective: 400px;
+    width: 4.2rem;
+    padding: 0.7rem 0 0.5rem;
+    border: 1px solid var(--gold-soft);
+    border-radius: 0.8rem;
+}
+
+.tile p { margin: 0; font-size: 1.9rem; line-height: 1.1; color: var(--cream); }
+.tile small { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-soft); }
+
+/* ---------- Acara ---------- */
+.event-icon { font-size: 1.6rem; color: var(--maroon); margin-bottom: 0.5rem; }
+.event h3 { font-size: 2.4rem; margin: 0 0 0.25rem; }
+.event p { margin: 0; }
+
+/* ---------- Galeri 2x2 ---------- */
+.gal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+.gal-item {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 0.75rem;
+    background: linear-gradient(180deg, var(--blush), #fff);
+}
+
+/* ---------- Amplop digital ---------- */
+html[data-bs-theme="light"] .pill-tabs .nav-link {
+    color: var(--maroon);
+    background: #fffdf9;
+    border: 1px solid var(--gold-soft);
+    border-radius: 0.6rem;
+    padding: 0.35rem 0;
+}
+
+html[data-bs-theme="light"] .pill-tabs .nav-link.active {
+    color: #fff;
+    background: var(--maroon);
+    border-color: var(--maroon);
+}
+
+.bank-name { font-weight: 700; color: var(--maroon); letter-spacing: 0.05em; }
+
+/* ---------- Navbar bawah ---------- */
+html[data-bs-theme="light"] .navbar {
+    background-color: rgba(255, 253, 249, 0.96) !important;
+    border-top-color: var(--gold-soft) !important;
+}
+
+html[data-bs-theme="light"] #navbar-menu .nav-link { color: rgba(122, 31, 51, 0.45); }
+html[data-bs-theme="light"] #navbar-menu .nav-link.active { color: var(--maroon); }
+.nav-label { font-size: 0.7rem; }
+
+/* ---------- Penutup ---------- */
+.closing-img {
+    display: block;
+    width: 80%;
+    max-width: 18rem;
+    height: auto;
+    margin: 1.5rem auto -4px;
+}
+
+/* ---------- Panel desktop ---------- */
+.desk-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 3rem 3rem 16rem;
+}
+
+/* ---------- Pintu 3D pembuka ---------- */
+#doors {
+    position: fixed;
+    inset: 0;
+    z-index: 1055;
+    perspective: 1600px;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.door {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: var(--cream);
+    backface-visibility: hidden;
+    transition: transform 1.7s cubic-bezier(0.7, 0, 0.25, 1) 0.15s, opacity 0.4s ease 1.5s;
+}
+
+.door::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--maroon-dark);
+    opacity: 0;
+    transition: opacity 1.7s ease 0.15s;
+}
+
+.door-l {
+    left: 0;
+    transform-origin: left center;
+    border-right: 1px solid var(--gold-soft);
+    box-shadow: inset -12px 0 18px -12px rgba(122, 31, 51, 0.2);
+}
+
+.door-r {
+    right: 0;
+    transform-origin: right center;
+    border-left: 1px solid var(--gold-soft);
+    box-shadow: inset 12px 0 18px -12px rgba(122, 31, 51, 0.2);
+}
+
+.door .orn { width: 96%; }
+
+#doors.open .door-l { transform: rotateY(-105deg); opacity: 0; }
+#doors.open .door-r { transform: rotateY(105deg); opacity: 0; }
+#doors.open .door::after { opacity: 0.45; }
+
+@media (prefers-reduced-motion: reduce) {
+    .door,
+    .door::after { transition-duration: 0.01s; transition-delay: 0s; }
+}
+
+/* ---------- Efek gerak ---------- */
+@keyframes sway {
+    from { rotate: -1.6deg; }
+    to { rotate: 1.6deg; }
+}
+
+@keyframes float {
+    0%,
+    100% { translate: 0 0; }
+    50% { translate: 0 -8px; }
+}
+
+@keyframes flip-in {
+    from { transform: rotateX(-90deg); opacity: 0; }
+    to { transform: rotateX(0); opacity: 1; }
+}
+
+/* Tilt 3D (kelas ditambahkan oleh script) */
+.tilt {
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transform-origin: 50% 100%;
+    transition: transform 0.2s ease-out;
+    filter: drop-shadow(var(--sx, 0px) 14px 16px rgba(74, 15, 28, 0.3));
+    will-change: transform;
+}
+
+.tilt.tilt-reset { transition-duration: 0.6s; }
+.tilt.tilt-center { transform-origin: 50% 50%; }
+.floaty { animation: float 6s ease-in-out infinite; }
+
+/* Countdown flip */
+.tile p.flip { animation: flip-in 0.5s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+    .orn,
+    .floaty,
+    .tile p.flip { animation: none; }
+
+    .tilt { transition: none; }
+}
+
+/* ---------- Ucapan & Doa ---------- */
+.ucapan-form .form-control {
+    margin-bottom: 0.9rem;
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-radius: 0.75rem;
+    color: var(--ink);
+}
+
+.presence-btn {
+    --bs-btn-color: var(--ink);
+    --bs-btn-bg: #fffdf9;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-color: var(--ink);
+    --bs-btn-hover-bg: #fff;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-color: var(--ink);
+    --bs-btn-active-bg: #fff;
+    --bs-btn-active-border-color: var(--gold);
+    flex: 1;
+    padding: 0.5rem 0;
+    border-width: 2px;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.presence-btn[data-presence="1"] i { color: #1f9d55; }
+.presence-btn[data-presence="2"] i { color: #d6334a; }
+.presence-btn.active { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(227, 207, 160, 0.6); }
+
+.btn-gold {
+    padding: 0.6rem 0;
+    border: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(180deg, #f3dc92, #c99a3d);
+    color: var(--maroon-dark);
+    font-weight: 700;
+}
+
+.btn-gold:disabled { opacity: 0.6; }
+
+.ucapan-list { margin-top: 2rem; }
+
+.ucapan-item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(227, 207, 160, 0.25);
+}
+
+.ucapan-avatar {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--maroon);
+}
+
+.ucapan-who { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.ucapan-who b { color: var(--gold-soft); }
+
+.ucapan-badge {
+    padding: 0.05rem 0.55rem;
+    border-radius: 1rem;
+    background: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.ucapan-badge.yes { color: #1f9d55; }
+.ucapan-badge.no { color: #d6334a; }
+.ucapan-when { font-size: 0.75rem; opacity: 0.75; }
+.ucapan-msg { margin: 0.25rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* ---------- Cover (welcome): aman di layar pendek ---------- */
+.cover { padding: clamp(4.5rem, 12vh, 6rem) 1rem 1.5rem; }
+.cover .oval-wrap { width: min(66vw, 15rem, 30vh); }
+.cover .names { font-size: clamp(2.6rem, min(14vw, 7.5vh), 4.2rem); }
+
+@media (max-height: 640px) {
+    .cover { padding-top: 4rem; }
+    .cover .oval-wrap { width: min(60vw, 12rem, 28vh); margin: 0.5rem auto; }
+}
