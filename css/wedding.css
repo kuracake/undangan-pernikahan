@@ -103,6 +103,7 @@ html[data-bs-theme="light"] .sec-maroon + .sec-maroon {
 .orn-tr { top: 0; right: 0; width: 48%; transform-origin: 100% 0; animation-delay: -2s; animation-duration: 7s; }
 .orn-bl { bottom: 0; left: 0; width: 48%; transform-origin: 0 100%; animation-delay: -4s; animation-duration: 6.5s; }
 .orn-br { bottom: 0; right: 0; width: 48%; transform-origin: 100% 100%; animation-delay: -1s; animation-duration: 7.5s; }
+.orn.orn-sm { width: 36%; }
 
 /* ---------- Tombol & form ---------- */
 html[data-bs-theme="light"] .btn-outline-auto {
@@ -269,11 +270,26 @@ html[data-bs-theme="light"] .text-theme-auto { color: var(--maroon); }
     width: 100%;
     min-width: 0;
     height: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 2 / 3;
     object-fit: cover;
     object-position: center top;
-    border-radius: 0.75rem;
+    border: 1.5px solid var(--gold);
+    border-radius: 999px 999px 0.75rem 0.75rem; /* bingkai lengkung */
     background: linear-gradient(180deg, var(--blush), #fff);
+
+    /* Foto privat: tidak bisa diklik, diseret, atau disimpan (klik kanan / tahan lama) */
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+}
+
+.gal-fig { margin: 0; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.gal-fig figcaption { margin-top: 0.4rem; font-size: 2.2rem; }
+
+@media print {
+    #gallery .gal-grid { display: none; }
 }
 
 /* ---------- Amplop digital ---------- */
@@ -502,3 +518,7 @@ html[data-bs-theme="light"] #navbar-menu .nav-link.active { color: var(--maroon)
     .cover { padding-top: 4rem; }
     .cover .oval-wrap { width: min(60vw, 12rem, 28vh); margin: 0.5rem auto; }
 }
+
+/* ---------- Mempelai: ruang untuk bunga di sudut ---------- */
+#bride.sec { padding-top: 6.5rem; padding-bottom: 8rem; }
+#bride > :not(.orn) { position: relative; z-index: 1; }

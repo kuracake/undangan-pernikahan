@@ -79,7 +79,7 @@
 
         <!-- Smartphone mode -->
         <div class="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 m-0 p-0">
-            <main data-bs-spy="scroll" data-bs-target="#navbar-menu" data-bs-root-margin="25% 0% 0% 0%" data-bs-smooth-scroll="true" tabindex="0">
+            <main tabindex="0">
 
                 <!-- Home -->
                 <section id="home" class="sec-maroon hero position-relative overflow-hidden text-center">
@@ -113,11 +113,14 @@
 
                 <!-- Mempelai -->
                 <section class="bg-light-dark sec" id="bride">
+                    <img src="./assets/images/flower-tl.webp" alt="" class="orn orn-tl orn-sm">
+                    <img src="./assets/images/flower-br.webp" alt="" class="orn orn-br orn-sm">
                     <p class="eyebrow">Mempelai</p>
                     <h2 class="font-esthetic h-script">Kedua Mempelai</h2>
                     <div class="divider mb-4">&#9670;</div>
 
                     <div data-aos="fade-up" data-aos-duration="1500">
+                        <p class="eyebrow mb-3">Mempelai Pria</p>
                         <div class="ring">
                             <img src="./assets/images/placeholder.webp" data-src="./assets/images/groom.webp" alt="Rafy" onclick="undangan.guest.modal(this)" class="cursor-pointer">
                         </div>
@@ -128,6 +131,7 @@
                     <h3 class="font-esthetic text-gold my-3" style="font-size: 3.5rem;">&amp;</h3>
 
                     <div data-aos="fade-up" data-aos-duration="1500">
+                        <p class="eyebrow mb-3">Mempelai Wanita</p>
                         <div class="ring">
                             <img src="./assets/images/placeholder.webp" data-src="./assets/images/bride.webp" alt="Nurul" onclick="undangan.guest.modal(this)" class="cursor-pointer" style="object-position: center 12%;">
                         </div>
@@ -164,7 +168,7 @@
                         <p>Resepsi &middot; Pukul 11.00 WIB - Selesai</p>
                         <p class="my-3">Lokasi menyusul</p>
                         <!-- GANTI href dengan link Google Maps setelah lokasi fix -->
-                        <a href="#" target="_blank" class="btn btn-outline-auto btn-sm rounded-pill px-3"><i class="fa-solid fa-location-dot me-2"></i>Lihat Lokasi</a>
+                        <a href="https://maps.app.goo.gl/b5gi6v6BfCvEGvFZ9" target="_blank" rel="noopener" class="btn btn-outline-auto btn-sm rounded-pill px-3"><i class="fa-solid fa-location-dot me-2"></i>Lihat Lokasi</a>
                     </div>
 
                     <div class="divider my-4">&#9670;</div>
@@ -178,7 +182,7 @@
                         <p>Pukul 08.00 WIB - Selesai</p>
                         <p class="my-3">Lokasi menyusul</p>
                         <!-- GANTI href dengan link Google Maps setelah lokasi fix -->
-                        <a href="#" target="_blank" class="btn btn-outline-auto btn-sm rounded-pill px-3"><i class="fa-solid fa-location-dot me-2"></i>Lihat Lokasi</a>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Sawo+RT.5+RW.2+Asmorobangun+Puncu+Kab.+Kediri+Jawa+Timur+64292" target="_blank" rel="noopener" class="btn btn-outline-auto btn-sm rounded-pill px-3"><i class="fa-solid fa-location-dot me-2"></i>Lihat Lokasi</a>
                     </div>
                 </section>
 
@@ -187,12 +191,17 @@
                     <p class="eyebrow">Momen Kami</p>
                     <h2 class="font-esthetic h-script">Galeri</h2>
                     <div class="divider mb-4">&#9670;</div>
-                    <!-- Ganti 4 gambar ini dengan foto prewedding jika sudah ada -->
+                    
+                    <!-- Foto bersifat privat: tidak bisa diklik/disimpan (lihat .gal-item di wedding.css) -->
                     <div class="gal-grid" data-aos="fade-up" data-aos-duration="1500">
-                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/couple.webp" alt="image 1" class="gal-item cursor-pointer" onclick="undangan.guest.modal(this)">
-                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/walking.webp" alt="image 2" class="gal-item cursor-pointer" onclick="undangan.guest.modal(this)">
-                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/groom.webp" alt="image 3" class="gal-item cursor-pointer" onclick="undangan.guest.modal(this)">
-                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/bride.webp" alt="image 4" class="gal-item cursor-pointer" onclick="undangan.guest.modal(this)">
+                        <figure class="gal-fig" oncontextmenu="return false">
+                            <img src="./assets/images/placeholder.webp" data-src="./assets/images/foto-rafy.webp?v=2" alt="Rafy" class="gal-item" draggable="false">
+                            <figcaption class="font-esthetic">Rafy</figcaption>
+                        </figure>
+                        <figure class="gal-fig" oncontextmenu="return false">
+                            <img src="./assets/images/placeholder.webp" data-src="./assets/images/foto-nurul.webp?v=2" alt="Nurul" class="gal-item" draggable="false">
+                            <figcaption class="font-esthetic">Nurul</figcaption>
+                        </figure>
                     </div>
                 </section>
 
@@ -231,8 +240,10 @@
                         </div>
 
                         <div class="tab-pane fade" id="tab-qris" role="tabpanel">
-                            <!-- Ganti dengan <img src="./assets/images/qris.webp" class="img-fluid rounded-3"> jika sudah punya QRIS -->
-                            <div class="card-w p-4"><p class="m-0">QRIS menyusul.</p></div>
+                            <div class="card-w p-2">
+                                <img src="./assets/images/placeholder.webp" data-src="./assets/images/qris.webp" alt="QRIS" class="img-fluid rounded-3 cursor-pointer" onclick="undangan.guest.modal(this)">
+                            </div>
+                            <small class="d-block mt-2">Ketuk gambar untuk memperbesar atau mengunduh.</small>
                         </div>
                     </div>
                 </section>
@@ -270,18 +281,6 @@
                     <div id="ucapan-list" class="ucapan-list text-start" aria-live="polite"></div>
                 </section>
             </main>
-
-            <!-- Navbar Bottom -->
-            <nav class="navbar navbar-expand sticky-bottom rounded-top-4 border-top p-0" id="navbar-menu">
-                <ul class="navbar-nav nav-justified w-100 align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#home"><i class="fa-solid fa-house"></i><span class="d-block nav-label">Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bride"><i class="fa-solid fa-user-group"></i><span class="d-block nav-label">Mempelai</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#wedding-date"><i class="fa-solid fa-calendar-check"></i><span class="d-block nav-label">Acara</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery"><i class="fa-solid fa-images"></i><span class="d-block nav-label">Galeri</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#ucapan"><i class="fa-solid fa-comments"></i><span class="d-block nav-label">Ucapan</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#comment"><i class="fa-solid fa-comments"></i><span class="d-block nav-label">Ucapan</span></a></li>
-                </ul>
-            </nav>
         </div>
     </div>
 
@@ -320,7 +319,7 @@
     </div>
 
     <!-- Button Group (tema dikunci light, tombol tema tidak ditampilkan) -->
-    <div class="d-flex position-fixed flex-column" style="bottom: 10vh; right: 2vh; z-index: 1030;">
+    <div class="d-flex position-fixed flex-column" style="bottom: 3vh; right: 2vh; z-index: 1030;">
         <button type="button" id="button-theme" class="btn bg-white-black border btn-sm rounded-circle d-none btn-transparent shadow-sm mt-3" aria-label="Change theme" onclick="undangan.theme.change()">
             <i class="fa-solid fa-circle-half-stroke"></i>
         </button>
