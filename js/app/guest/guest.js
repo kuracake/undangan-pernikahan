@@ -245,25 +245,46 @@ export const guest = (() => {
     /**
      * @returns {void}
      */
-    const buildGoogleCalendar = () => {
+        const buildGoogleCalendar = () => {
         /**
          * @param {string} d 
          * @returns {string}
          */
         const formatDate = (d) => (new Date(d.replace(' ', 'T') + ':00Z')).toISOString().replace(/[-:]/g, '').split('.').shift();
 
-        const url = new URL('https://calendar.google.com/calendar/render');
-        const data = new URLSearchParams({
-            action: 'TEMPLATE',
-            text: 'The Wedding of Rafy and Nurul',
-            dates: `${formatDate('2026-11-06 01:00')}/${formatDate('2026-11-06 07:00')}`,
-            details: 'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami. Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.',
-            location: 'Menyusul',
-            ctz: config.get('tz'),
-        });
+        // Waktu ditulis dalam WIB (zona waktu acara), contoh: 08.00 WIB -> 08:00
+        const events = [
+            {
+                button: '#calendar-wanita',
+                text: 'The Wedding of Rafy and Nurul - Akad & Resepsi',
+                start: '2026-11-06 08:00',
+                end: '2026-11-06 14:00',
+                location: 'Kediaman Nurul Fauziah',
+                details: 'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami. Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami. Lokasi: https://maps.app.goo.gl/b5gi6v6BfCvEGvFZ9',
+            },
+            {
+                button: '#calendar-pria',
+                text: 'The Wedding of Rafy and Nurul - Resepsi (Kediaman Mempelai Pria)',
+                start: '2026-11-08 08:00',
+                end: '2026-11-08 14:00',
+                location: 'Jalan Sawo, RT.5/RW.2, Asmorobangun, Puncu, Kab. Kediri, Jawa Timur 64292',
+                details: 'Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu pada resepsi pernikahan kami di kediaman mempelai pria.',
+            },
+        ];
 
-        url.search = data.toString();
-        document.querySelector('#home button')?.addEventListener('click', () => window.open(url, '_blank'));
+        events.forEach((e) => {
+            const url = new URL('https://calendar.google.com/calendar/render');
+            url.search = new URLSearchParams({
+                action: 'TEMPLATE',
+                text: e.text,
+                dates: `${formatDate(e.start)}/${formatDate(e.end)}`,
+                details: e.details,
+                location: e.location,
+                ctz: 'Asia/Jakarta', // zona waktu acara (WIB), bukan zona waktu pengunjung
+            }).toString();
+
+            document.querySelector(e.button)?.addEventListener('click', () => window.open(url, '_blank'));
+        });
     };
 
     /**
